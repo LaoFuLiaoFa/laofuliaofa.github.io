@@ -22,7 +22,7 @@
 
   
 
-  <title>React | LaoFuLiaoFa&#39;s blog</title>
+  <title>记录学习到的 vim 编译器命令 | LaoFuLiaoFa&#39;s blog</title>
 
   
 
@@ -99,17 +99,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">React</h1>
+          <h1 class="title-wrap">记录学习到的 vim 编译器命令</h1>
           <h2 class="title-sub-wrap">
             <strong>LaoFuLiaoFa</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-01-09T02:54:59.484Z" itemprop="datePublished">2024-01-09</time>
+            <time  class="article-date" datetime="2024-03-27T16:41:22.272Z" itemprop="datePublished">2024-03-28</time>
           </h2>
-          
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-03-26T02:29:44.313Z" itemprop="dateUpdated">2024-03-26</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -139,34 +134,78 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="1-全局安装-React-脚手架"><a href="#1-全局安装-React-脚手架" class="headerlink" title="1.全局安装 React 脚手架"></a>1.全局安装 React 脚手架</h2><p>npm install -g create-react-app</p>
-<h2 id="2-检查脚手架是否安装成功"><a href="#2-检查脚手架是否安装成功" class="headerlink" title="2.检查脚手架是否安装成功"></a>2.检查脚手架是否安装成功</h2><p>create-react-app -v</p>
-<h2 id="3-权限问题"><a href="#3-权限问题" class="headerlink" title="3.权限问题"></a>3.权限问题</h2><p>sudo chmod -R 777 目录路径</p>
-<h2 id="4-创建项目"><a href="#4-创建项目" class="headerlink" title="4.创建项目"></a>4.创建项目</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p>create-react-app 项目名称</p>
-<h3 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h3><p>create-react-app 项目名称 – template typescript</p>
-<h2 id="5-配置-craco-config-js-文件-配置-路径"><a href="#5-配置-craco-config-js-文件-配置-路径" class="headerlink" title="5.配置 craco.config.js 文件(配置@路径)"></a>5.配置 craco.config.js 文件(配置@路径)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resolve</span> = (<span class="params">dir</span>) =&gt; path.<span class="title function_">resolve</span>(__dirname, dir);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">webpack</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@&quot;</span>: <span class="title function_">resolve</span>(<span class="string">&quot;src&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-修改-package-json"><a href="#6-修改-package-json" class="headerlink" title="6.修改 package.json"></a>6.修改 package.json</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco start&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco build&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco test&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eject&quot;</span><span class="punctuation">:</span> <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-集成-editorconfig-配置"><a href="#7-集成-editorconfig-配置" class="headerlink" title="7.集成 editorconfig 配置"></a>7.集成 editorconfig 配置</h2><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
-<p>首先在根路径下创建文件.editorconfig:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># https://EditorConfig.org</span></span><br><span class="line"></span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"><span class="section"># 表示所有文件适用</span></span><br><span class="line"></span><br><span class="line">[<span class="emphasis">*]</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 设置文件字符集为 utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">charset = utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进字符风格（tab ｜ space）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_style = space</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进大小</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_size = 2</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 控制换行类型（lf ｜ cr ｜ crlf）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">end_of_line = lf</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 去除行尾的任意空白字符</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">trim_trailing_whitespace = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 始终在文件末尾插入一个新行</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">insert_final_newline = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 表示仅 md 文件适用以下规则</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">[*</span>.md]</span><br><span class="line">max<span class="emphasis">_line_</span>length = off</span><br><span class="line">trim<span class="emphasis">_trailing_</span>whitespace = false</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-配置-prettier-和-eslint"><a href="#8-配置-prettier-和-eslint" class="headerlink" title="8.配置 prettier 和 eslint"></a>8.配置 prettier 和 eslint</h2><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><p>报错：</p>
+        <h2 id="创建一个文件夹"><a href="#创建一个文件夹" class="headerlink" title="创建一个文件夹"></a>创建一个文件夹</h2><p><strong>语法格式：</strong></p>
 <blockquote>
-<p>One of your dependencies, babel-preset-react-app, is importing the “@babel&#x2F;plugin-proposal-private-property-in-object” package without declaring it in its dependencies. This is currently working because “@babel&#x2F;plugin-proposal-private-property-in-object” is already in your node_modules folder for unrelated reasons, but it may break at any time.</p>
-<p>babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add “@babel&#x2F;plugin-proposal-private-property-in-object” to your devDependencies to work around this error. This will make this message go away.</p>
+<p>mkdir 文件夹名称</p>
 </blockquote>
-<p>解决：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/plugin-proposal-private-property-<span class="keyword">in</span>-object</span><br></pre></td></tr></table></figure>
-
-<h3 id="二-ts（2307）路径报错"><a href="#二-ts（2307）路径报错" class="headerlink" title="二.ts（2307）路径报错"></a>二.ts（2307）路径报错</h3><p>报错：</p>
+<h2 id="进入一个文件夹"><a href="#进入一个文件夹" class="headerlink" title="进入一个文件夹"></a>进入一个文件夹</h2><p><strong>语法格式：</strong></p>
 <blockquote>
-<p>Cannot find module ‘@&#x2F;App’ or its corresponding type declarations.ts(2307)</p>
+<p>cd 文件夹名称</p>
 </blockquote>
-<p>解决：</p>
-<p>找到 tsconfig.json 文件，在 compilerOptions 的作用域里增加如下代码：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;baseUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;src/*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除一个文件夹或者目录或者文件"><a href="#删除一个文件夹或者目录或者文件" class="headerlink" title="删除一个文件夹或者目录或者文件"></a>删除一个文件夹或者目录或者文件</h2><p><strong>语法格式：</strong><br>第一步：</p>
+<blockquote>
+<p>su root</p>
+</blockquote>
+<p>输入密码进入管理员模式<br>第二步：</p>
+<blockquote>
+<p>rm -rf 文件名称</p>
+</blockquote>
+<h2 id="创建一个在文件夹下的目录，并进入-vim-编辑器"><a href="#创建一个在文件夹下的目录，并进入-vim-编辑器" class="headerlink" title="创建一个在文件夹下的目录，并进入 vim 编辑器"></a>创建一个在文件夹下的目录，并进入 vim 编辑器</h2><p><strong>语法格式：</strong></p>
+<blockquote>
+<p>vi 文件名称.c</p>
+</blockquote>
+<h2 id="编译完-c-程序后，退出-vim-编译器"><a href="#编译完-c-程序后，退出-vim-编译器" class="headerlink" title="编译完.c 程序后，退出 vim 编译器"></a>编译完.c 程序后，退出 vim 编译器</h2><p><strong>语法格式：</strong><br>① 方法一：<br>第一步：</p>
+<blockquote>
+<p>按 Esc</p>
+</blockquote>
+<p>第二步：</p>
+<blockquote>
+<p>按 Shift+连续按两次 z</p>
+</blockquote>
+<p>PS：使用这种方法时，要注意关闭大小写键，否则将无效<br>② 方法二：<br>第一步：</p>
+<blockquote>
+<p>按 Esc</p>
+</blockquote>
+<p>第二步：输入</p>
+<blockquote>
+<p>：wq</p>
+</blockquote>
+<h2 id="退出-vim-编译器后，编译该-c-程序"><a href="#退出-vim-编译器后，编译该-c-程序" class="headerlink" title="退出 vim 编译器后，编译该.c 程序"></a>退出 vim 编译器后，编译该.c 程序</h2><p>① 方法一：<br><strong>语法格式：</strong></p>
+<blockquote>
+<p>gcc 文件名称.c -o 文件名称</p>
+</blockquote>
+<p>输入完上行命令后，按 Enter 键，如果报错，则重新输入:</p>
+<blockquote>
+<p>vi 文件名称.c</p>
+</blockquote>
+<p>进行程序的修改，如若没有报错，则继续输入:</p>
+<blockquote>
+<p>.&#x2F;文件名称</p>
+</blockquote>
+<p>② 方法二：<br>PS：方法二其实就是把方法一合并成一句来输入。<br><strong>语法格式：</strong></p>
+<blockquote>
+<p>gcc 文件名称.c -o 文件名称 &amp;&amp; .&#x2F;文件名称</p>
+</blockquote>
+<p>③ 方法三：<br><strong>语法格式：</strong></p>
+<blockquote>
+<p>gcc 文件名称.c</p>
+</blockquote>
+<p>输入完上行命令后，按 Enter 键，如果报错，则重新输入:</p>
+<blockquote>
+<p>vi 文件名称.c</p>
+</blockquote>
+<p>进行程序的修改，如若没有报错，则继续输入:</p>
+<blockquote>
+<p>.&#x2F;a.out</p>
+</blockquote>
+<p>④ 方法四：<br>PS：方法四其实就是把方法三合并成一句来输入。<br><strong>语法格式：</strong></p>
+<blockquote>
+<p>gcc 文件名称.c &amp;&amp; .&#x2F;a.out</p>
+</blockquote>
+<h2 id="编写的-c-程序含有-pow-函数时"><a href="#编写的-c-程序含有-pow-函数时" class="headerlink" title="编写的.c 程序含有 pow()函数时"></a>编写的.c 程序含有 pow()函数时</h2><p><strong>语法格式：</strong><br>在原来的基础上加上-lm（目的是连接 math 库）就可，即：</p>
+<blockquote>
+<p>gcc -lm 文件名称.c &amp;&amp; .&#x2F;a.out</p>
+</blockquote>
 
       </section>
 
@@ -174,20 +213,20 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2024/01/20/Vue/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Vue</h2>
+        <a href="/2024/03/28/HTTP%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">HTTP协议学习笔记</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       

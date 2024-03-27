@@ -22,7 +22,7 @@
 
   
 
-  <title>React | LaoFuLiaoFa&#39;s blog</title>
+  <title>HTML + CSS | LaoFuLiaoFa&#39;s blog</title>
 
   
 
@@ -99,17 +99,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">React</h1>
+          <h1 class="title-wrap">HTML + CSS</h1>
           <h2 class="title-sub-wrap">
             <strong>LaoFuLiaoFa</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-01-09T02:54:59.484Z" itemprop="datePublished">2024-01-09</time>
+            <time  class="article-date" datetime="2024-03-27T16:33:28.676Z" itemprop="datePublished">2024-03-28</time>
           </h2>
-          
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-03-26T02:29:44.313Z" itemprop="dateUpdated">2024-03-26</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -139,35 +134,559 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="1-全局安装-React-脚手架"><a href="#1-全局安装-React-脚手架" class="headerlink" title="1.全局安装 React 脚手架"></a>1.全局安装 React 脚手架</h2><p>npm install -g create-react-app</p>
-<h2 id="2-检查脚手架是否安装成功"><a href="#2-检查脚手架是否安装成功" class="headerlink" title="2.检查脚手架是否安装成功"></a>2.检查脚手架是否安装成功</h2><p>create-react-app -v</p>
-<h2 id="3-权限问题"><a href="#3-权限问题" class="headerlink" title="3.权限问题"></a>3.权限问题</h2><p>sudo chmod -R 777 目录路径</p>
-<h2 id="4-创建项目"><a href="#4-创建项目" class="headerlink" title="4.创建项目"></a>4.创建项目</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p>create-react-app 项目名称</p>
-<h3 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h3><p>create-react-app 项目名称 – template typescript</p>
-<h2 id="5-配置-craco-config-js-文件-配置-路径"><a href="#5-配置-craco-config-js-文件-配置-路径" class="headerlink" title="5.配置 craco.config.js 文件(配置@路径)"></a>5.配置 craco.config.js 文件(配置@路径)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resolve</span> = (<span class="params">dir</span>) =&gt; path.<span class="title function_">resolve</span>(__dirname, dir);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">webpack</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@&quot;</span>: <span class="title function_">resolve</span>(<span class="string">&quot;src&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML + CSS"></a>HTML + CSS</h1><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML-不是一种编程语言，而是一种标记语言"><a href="#HTML-不是一种编程语言，而是一种标记语言" class="headerlink" title="HTML 不是一种编程语言，而是一种标记语言"></a>HTML 不是一种编程语言，而是一种标记语言</h3><ul>
+<li><p>它可以加入图片、声音、动画、多媒体等内容（超越了文本限制）</p>
+</li>
+<li><p>它还可以从一个文件跳转到另一个文件，与世界各地主机的文件连接（超级链接文本）</p>
+</li>
+</ul>
+<h3 id="浏览器内核（渲染引擎）"><a href="#浏览器内核（渲染引擎）" class="headerlink" title="浏览器内核（渲染引擎）"></a>浏览器内核（渲染引擎）</h3><ul>
+<li><p>负责读取网页内容，整理讯息，计算网页的显示方式并显示页面。</p>
+<ul>
+<li><p>浏览器</p>
+<ul>
+<li><p>IE</p>
+<ul>
+<li><p>FireFox</p>
+<ul>
+<li><p>Safari</p>
+<ul>
+<li>Chrome &#x2F; Opera</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内核</p>
+<ul>
+<li><p>Trident</p>
+<ul>
+<li><p>Gecko</p>
+<ul>
+<li><p>Webkit</p>
+<ul>
+<li>Blink</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>备注</p>
+<ul>
+<li><p>IE、猎豹安全、360 急速浏览器、百度浏览器</p>
+<ul>
+<li><p>火狐浏览器内核</p>
+<ul>
+<li><p>苹果浏览器内核</p>
+<ul>
+<li>Chrome &#x2F; Opera 浏览器内核。Blink 其实是 Webit 的分支。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>目前国内一般浏览器都会采用 Webit &#x2F; Blink 内核，如 360、UC、QQ、搜狗等。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Web-标准"><a href="#Web-标准" class="headerlink" title="Web 标准"></a>Web 标准</h3><ul>
+<li><p>结构</p>
+<ul>
+<li>对网页元素进行整理和分类，现阶段主要学的是 HTML（三者之中最重要的）</li>
+</ul>
+</li>
+<li><p>表现</p>
+<ul>
+<li>设置网页元素的版式、颜色、大小等外观样式，主要是指 CSS</li>
+</ul>
+</li>
+<li><p>行为</p>
+<ul>
+<li>指网页模型的定义及交互的编写，现阶段主要学的是 JavaScript</li>
+</ul>
+</li>
+</ul>
+<h2 id="CSS（层叠样式表）"><a href="#CSS（层叠样式表）" class="headerlink" title="CSS（层叠样式表）"></a>CSS（层叠样式表）</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><p>是一种计算机语言，但不算一种编程语言</p>
+</li>
+<li><p>注意点</p>
+<ul>
+<li><p>“|”竖线的实现</p>
+<ul>
+<li><p><em>|</em></p>
+<ul>
+<li>font-style:normal;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>去掉 li 前面的“·”符号</p>
+<ul>
+<li>list-style：none；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li><p>内联样式(inline)</p>
+<ul>
+<li>存在于 style 属性中</li>
+</ul>
+</li>
+<li><p>内部样式表(internal style sheet)、文档样式表、内嵌样式表</p>
+<ul>
+<li><p>选择器</p>
+<ul>
+<li><p>通过元素选择器</p>
+<ul>
+<li><p>div{ }</p>
+</li>
+<li><p>.class 名</p>
+</li>
+</ul>
+</li>
+<li><p>后代选择器</p>
+<ul>
+<li>.class 名 img ｛ ｝</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外部样式表(external style sheet)</p>
+<ul>
+<li><p>引入资源<link rel=“stylesheet” href=“地址” /></p>
+<ul>
+<li><p>href</p>
+<ul>
+<li>此属性指定被链接资源的 URL。URL 可以是绝对的，也可以是相对的。</li>
+</ul>
+</li>
+<li><p>rel</p>
+<ul>
+<li><p>指定链接类型。</p>
+</li>
+<li><p>icon</p>
+<ul>
+<li>站点图标</li>
+</ul>
+</li>
+<li><p>stylesheet</p>
+<ul>
+<li>CSS 样式</li>
+</ul>
+</li>
+<li><p>dns-prefetch</p>
+<ul>
+<li>性能优化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>index.css</p>
+<ul>
+<li>@import url(地址)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常见的 css 样式</p>
+<ul>
+<li><p>color</p>
+<ul>
+<li>设置前景色</li>
+</ul>
+</li>
+<li><p>background-color</p>
+<ul>
+<li><p>设置背景颜色</p>
+</li>
+<li><p>简写：bgc</p>
+</li>
+</ul>
+</li>
+<li><p>width height</p>
+<ul>
+<li>设置宽高</li>
+</ul>
+</li>
+<li><p>文本</p>
+<ul>
+<li><p>text-align</p>
+<ul>
+<li><p>left</p>
+</li>
+<li><p>right</p>
+</li>
+<li><p>center</p>
+</li>
+<li><p>justify</p>
+<ul>
+<li><p>最后一行不生效</p>
+</li>
+<li><p>text-align-last：justify；</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>text-decoration</p>
+<ul>
+<li><p>underline</p>
+</li>
+<li><p>line-through</p>
+</li>
+<li><p>overline</p>
+</li>
+<li><p>none</p>
+</li>
+<li><p>em:相对于字体的大小</p>
+</li>
+</ul>
+</li>
+<li><p>letter-spacing</p>
+<ul>
+<li>字母之间的间隙</li>
+</ul>
+</li>
+<li><p>word-spacing</p>
+<ul>
+<li>单词之间的间距</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字体</p>
+<ul>
+<li><p>font-size</p>
+<ul>
+<li><p>设置字体大小</p>
+</li>
+<li><p>默认 16px</p>
+</li>
+<li><p>不要小于 12px</p>
+</li>
+<li><p>简写：fz</p>
+</li>
+</ul>
+</li>
+<li><p>font-weight</p>
+</li>
+<li><p>font-style</p>
+<ul>
+<li><p>斜体</p>
+<ul>
+<li><p>normal</p>
+</li>
+<li><p>italic</p>
+<ul>
+<li>字体本身支持斜体（通常会有专门的字体）</li>
+</ul>
+</li>
+<li><p>oblique</p>
+<ul>
+<li>倾斜（仅仅是让文字倾斜）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>font-variant</p>
+<ul>
+<li><p>small-caps</p>
+<ul>
+<li>将小写字母替换为缩小过的大写字母</li>
+</ul>
+</li>
+<li><p>normal</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>line-height</p>
+<ul>
+<li><p>用于设置文本的行高</p>
+<ul>
+<li><p>行高可以先简单理解为一行文字所占据的高度</p>
+</li>
+<li><p>行高严格定义：两行文字基线之间的间距</p>
+<ul>
+<li>基线：与小写字母 x 最底部的线</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>font</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="元素显示模式"><a href="#元素显示模式" class="headerlink" title="元素显示模式"></a>元素显示模式</h3><ul>
+<li><p>is 元素（标签）以什么方式进行显示</p>
+</li>
+<li><p>HTML 元素一般分为块元素和行内元素两种类型</p>
+<ul>
+<li><p>块元素</p>
+<ul>
+<li><div>、<h1>~<h6>、<p>、<ul>、<ol>、<li>
+</li>
+<li><p>特点</p>
+<ul>
+<li><p>① 比较霸道，自己独占一行</p>
+</li>
+<li><p>② 高度、宽度、外边距以及内边距都可以控制</p>
+</li>
+<li><p>③ 宽度默认是容器（父级宽度）的 100%</p>
+</li>
+<li><p>④ 是一个容器及盒子，里面可以放行内或者块级元素</p>
+</li>
+</ul>
+</li>
+<li><p>PS</p>
+<ul>
+<li>文字类的元素内不能使用块级元素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>行内元素 &#x2F; 内联元素</p>
+<ul>
+<li><p><a>、<strong>、<b>、<em>、<i>、<del>、<s>、<ins>、<u>、<span></p>
+</li>
+<li><p>特点</p>
+<ul>
+<li><p>① 相邻行内元素在一行上，一行可以显示多个</p>
+</li>
+<li><p>② 高、宽直接设置时无效的</p>
+</li>
+<li><p>③ 默认宽度就是他本身内容的宽度</p>
+</li>
+<li><p>④ 行内元素只能容纳文本或其他行内元素</p>
+</li>
+</ul>
+</li>
+<li><p>PS</p>
+<ul>
+<li><p>链接里面不能再放链接</p>
+</li>
+<li><p>特殊情况链接<a>里面可以放块级元素，但是给<a>转换一下块级模式最安全</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>行内块元素</p>
+<ul>
+<li><p><img />、<input />、<td>，他们同时具有块元素和行内元素的特点</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li><p>① 和相邻行内元素（行内块）在一行上，但是他们之间会有空白缝隙。一行可以显示多个（行内元素特点）</p>
+</li>
+<li><p>② 默认宽度就是他本身内容的宽度（行内元素特点）</p>
+</li>
+<li><p>③ 高度、行高、外边距以及内边距都可以控制（块级元素特点）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>元素显示模式转换</p>
+<ul>
+<li><p>把行内元素转换为块级元素</p>
+<ul>
+<li>display：block；</li>
+</ul>
+</li>
+<li><p>把块级元素转换为行内元素</p>
+<ul>
+<li>display：inline；</li>
+</ul>
+</li>
+<li><p>转换为行内块元素</p>
+<ul>
+<li>display：inline-block；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h3><ul>
+<li><p>垂直居中</p>
+<pre><code>- 单行文字垂直居中
 
-<h2 id="6-修改-package-json"><a href="#6-修改-package-json" class="headerlink" title="6.修改 package.json"></a>6.修改 package.json</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco start&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco build&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco test&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eject&quot;</span><span class="punctuation">:</span> <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+    - 行高line-height等于盒子的高度
 
-<h2 id="7-集成-editorconfig-配置"><a href="#7-集成-editorconfig-配置" class="headerlink" title="7.集成 editorconfig 配置"></a>7.集成 editorconfig 配置</h2><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
-<p>首先在根路径下创建文件.editorconfig:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># https://EditorConfig.org</span></span><br><span class="line"></span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"><span class="section"># 表示所有文件适用</span></span><br><span class="line"></span><br><span class="line">[<span class="emphasis">*]</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 设置文件字符集为 utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">charset = utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进字符风格（tab ｜ space）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_style = space</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进大小</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_size = 2</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 控制换行类型（lf ｜ cr ｜ crlf）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">end_of_line = lf</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 去除行尾的任意空白字符</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">trim_trailing_whitespace = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 始终在文件末尾插入一个新行</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">insert_final_newline = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 表示仅 md 文件适用以下规则</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">[*</span>.md]</span><br><span class="line">max<span class="emphasis">_line_</span>length = off</span><br><span class="line">trim<span class="emphasis">_trailing_</span>whitespace = false</span><br></pre></td></tr></table></figure>
+        - 简单理解：
+</code></pre>
+<p>行高的上空隙和下空隙把文字挤到中间了。<br>如果行高小于盒子高度，文字会偏上。<br>如果行高大于盒子高度，文字会偏下。</p>
+</li>
+<li><p>水平居中</p>
+<ul>
+<li><p>外边距可以让块级盒子水平居中，但是必须满足两个条件：</p>
+<ul>
+<li><p>① 盒子必须指定宽度（width）</p>
+</li>
+<li><p>② 盒子左右的外边距都设置为 auto</p>
+</li>
+</ul>
+</li>
+<li><p>行内元素或者行内块元素水平居中给其父元素添加 text-align：center 即可。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
+<li><p>页面元素既可以添加背景颜色也可以添加背景图片，只不过背景图片会压住背景颜色。</p>
+</li>
+<li><p>背景属性简写时，没有特定的书写顺序，一般习惯约定顺序为</p>
+<ul>
+<li>background：背景颜色 背景图片地址 背景平铺 背景图像滚动（背景附着） 背景图片位置</li>
+</ul>
+</li>
+<li><p>背景色半透明</p>
+<ul>
+<li><p>background：rgba（0，0，0，0.3）</p>
+<ul>
+<li>最后一个参数是 alpha 透明度，取值范围在 0~1 之间</li>
+</ul>
+</li>
+<li><p>PS</p>
+<ul>
+<li>背景半透明是指盒子背景半透明，盒子里面的内容不受影响</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><ul>
+<li><p>选择器</p>
+<ul>
+<li><p>继承 或者 *</p>
+<ul>
+<li><p>元素选择器</p>
+<ul>
+<li><p>类选择器，伪类选择器</p>
+<ul>
+<li><p>ID 选择器</p>
+<ul>
+<li><p>行内样式</p>
+<ul>
+<li>！important</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选择器权重</p>
+<ul>
+<li><p>0，0，0，0</p>
+<ul>
+<li><p>0，0，0，1</p>
+<ul>
+<li><p>0，0，1，0</p>
+<ul>
+<li><p>0，1，0，0</p>
+<ul>
+<li><p>1，0，0，0</p>
+<ul>
+<li>无穷大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>权重叠加</p>
+<ul>
+<li>如果是复合选择器则会有权重叠加，需要计算权重</li>
+</ul>
+</li>
+</ul>
+<h3 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h3><ul>
+<li><p>盒子模型</p>
+<pre><code>- 外边距合并
 
-<h2 id="8-配置-prettier-和-eslint"><a href="#8-配置-prettier-和-eslint" class="headerlink" title="8.配置 prettier 和 eslint"></a>8.配置 prettier 和 eslint</h2><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><p>报错：</p>
-<blockquote>
-<p>One of your dependencies, babel-preset-react-app, is importing the “@babel&#x2F;plugin-proposal-private-property-in-object” package without declaring it in its dependencies. This is currently working because “@babel&#x2F;plugin-proposal-private-property-in-object” is already in your node_modules folder for unrelated reasons, but it may break at any time.</p>
-<p>babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add “@babel&#x2F;plugin-proposal-private-property-in-object” to your devDependencies to work around this error. This will make this message go away.</p>
-</blockquote>
-<p>解决：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/plugin-proposal-private-property-<span class="keyword">in</span>-object</span><br></pre></td></tr></table></figure>
+    - 嵌套块元素垂直外边距的塌陷
 
-<h3 id="二-ts（2307）路径报错"><a href="#二-ts（2307）路径报错" class="headerlink" title="二.ts（2307）路径报错"></a>二.ts（2307）路径报错</h3><p>报错：</p>
-<blockquote>
-<p>Cannot find module ‘@&#x2F;App’ or its corresponding type declarations.ts(2307)</p>
-</blockquote>
-<p>解决：</p>
-<p>找到 tsconfig.json 文件，在 compilerOptions 的作用域里增加如下代码：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;baseUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;src/*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+        - 对于两个嵌套关系（父子关系）的块元素，父元素有上外边距同时子元素也有上外边距，此时父元素会塌陷较大的外边距值。
 
+            - 解决方案
+
+                - ①可以为父元素定义上边框
+
+                    - 透明边框
+
+                        - border：1px solid transparent；
+
+                - ②可以为父元素定义上内边距
+
+                - ③可以为父元素添加overflow：hidden；
+
+    - 相邻块元素垂直外边距的合并
+
+        - 当上下相邻的两个块元素（兄弟关系）相遇时，如果上面的元素有下外边距margin-bottom，下面元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和。取两个值中的较大者这种现象被称为相邻元素垂直外边距的合并。
+
+            - 解决方案
+
+                - 尽量只给一个盒子添加margin值
+
+- 清除内外边距
+
+    - * &#123;
+padding：0；/*  清除内边距 */
+margin：0；/* 清除外边距 */
+</code></pre>
+<p>}</p>
+<pre><code>        - 行内元素为了照顾兼容性，尽量只设置左右内外边距，不要设置上下内外边距。但是转换为块级和行内块元素就可以了。
+
+- 盒子与盒子之间的距离用margin值隔开
+</code></pre>
+</li>
+<li><p>浮动</p>
+<ul>
+<li>如果行内元素有了浮动，则不需要转换块级 \ 行内元素就可以直接给高度和宽度。</li>
+</ul>
+</li>
+<li><p>定位</p>
+</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3>
       </section>
 
       
@@ -179,8 +698,8 @@
     
     <div class="card-text">
       
-        <a href="/2024/01/20/Vue/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Vue</h2>
+        <a href="/2024/03/28/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">人工智能导论学习笔记</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -188,6 +707,20 @@
   </article>
 </div>
           
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/03/26/Flutter/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Flutter</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
           
         </nav>
       
