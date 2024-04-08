@@ -22,7 +22,7 @@
 
   
 
-  <title>LaoFuLiaoFa&#39;s blog</title>
+  <title>递归实现案例及斐波那契数列的实现 | LaoFuLiaoFa&#39;s blog</title>
 
   
 
@@ -95,7 +95,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap"></h1>
+          <h1 class="title-wrap">递归实现案例及斐波那契数列的实现</h1>
           <h2 class="title-sub-wrap">
             <strong>LaoFuLiaoFa</strong>
             <span>发布于</span>
@@ -131,54 +131,47 @@
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <blockquote>
-<p><em>&#x2F;</em>**</p>
-<p> ** 需求： 封装一个函数，函数可以实现x的n次方法*</p>
-<p> **&#x2F;*</p>
+<p>*&#x2F;***</p>
+<p>*_ 需求： 封装一个函数，函数可以实现 x 的 n 次方法_</p>
+<p>*<em>&#x2F;</em></p>
 </blockquote>
 <ul>
-<li>常规方法1</li>
+<li>常规方法 1</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pow1</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x ** n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow1</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow1</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>常规方法2</li>
+<li>常规方法 2</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>常规方法3</li>
+<li>常规方法 3</li>
 </ul>
-<p>for循环实现方式</p>
+<p>for 循环实现方式</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pow2</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    result = result * x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow2</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow2</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-
 
 <ul>
 <li>递归实现方法（必须有一个结束条件）</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缺点：性能比较低（占用过多的栈内存）</span></span><br><span class="line"><span class="comment">// 优点：写出来的代码非常简洁</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">pow3</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="comment">// 结束条件</span></span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">  <span class="keyword">return</span> x * <span class="title function_">pow3</span>(x, n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow3</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow3</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 
-
-
 <h1 id="递归实现-斐波那契数列"><a href="#递归实现-斐波那契数列" class="headerlink" title="递归实现 - 斐波那契数列"></a>递归实现 - 斐波那契数列</h1><blockquote>
-<p><em>&#x2F;</em>**</p>
-<p> ** 什么是斐波那契数列：*</p>
-<p> ** 数列：1 1 2 3 5 8 13 21 34 55 … x*</p>
-<p> ** 位置：1 2 3 4 5 6 7  8  9  10 … n*</p>
-<p> **&#x2F;*</p>
+<p>*&#x2F;***</p>
+<p>*_ 什么是斐波那契数列：_</p>
+<p>*_ 数列：1 1 2 3 5 8 13 21 34 55 … x_</p>
+<p>*_ 位置：1 2 3 4 5 6 7 8 9 10 … n_</p>
+<p>*<em>&#x2F;</em></p>
 </blockquote>
 <ul>
 <li>使用递归实现</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fibonaqi</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">fibonaqi</span>(n - <span class="number">1</span>) + <span class="title function_">fibonaqi</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">5</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">10</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">20</span>));</span><br></pre></td></tr></table></figure>
 
-
-
 <ul>
-<li>使用for循环实现</li>
+<li>使用 for 循环实现</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fibonaqi2</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="comment">// 特殊情况（前两个数字）</span></span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// for循环的实现</span></span><br><span class="line">  <span class="keyword">var</span> n1 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> n2 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    result = n1 + n2;</span><br><span class="line">    n1 = n2;</span><br><span class="line">    n2 = result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">5</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">10</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">20</span>));</span><br></pre></td></tr></table></figure>
-
 
       </section>
 
