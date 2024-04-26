@@ -104,7 +104,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-04-26T02:01:13.758Z" itemprop="dateUpdated">2024-04-26</time>
+              <time  class="article-updated" datetime="2024-04-26T06:54:16.476Z" itemprop="dateUpdated">2024-04-26</time>
             </h2>
           
           
@@ -577,11 +577,83 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = [<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cba&quot;</span>, <span class="string">&quot;nba&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//includes</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(names.<span class="title function_">includes</span>(<span class="string">&quot;nba&quot;</span>)) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> findIndex = names.<span class="title function_">findIndex</span>(<span class="keyword">function</span> (<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item === <span class="string">&quot;nba&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(findIndex); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="数组的排序和旋转"><a href="#数组的排序和旋转" class="headerlink" title="数组的排序和旋转"></a>数组的排序和旋转</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">20</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">100</span>, <span class="number">88</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// sort：排序</span></span><br><span class="line">nums.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// item1和item2进行比较</span></span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="数组的排序和反转-sort-reverse"><a href="#数组的排序和反转-sort-reverse" class="headerlink" title="数组的排序和反转 - sort &#x2F; reverse"></a>数组的排序和反转 - sort &#x2F; reverse</h4><p>$$<br>arr.sort([compareFunction])<br>$$</p>
+<ul>
+<li>如果compareFunction(a, b)小于0，那么a会被排列到b前面；</li>
+<li>如果compareFunction(a, b)等于0，a和b的相对位置不变；</li>
+<li>如果compareFunction(a, b)大于0，b会被排列到a前面；</li>
+<li>也就是说，谁小谁排在前面。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nums = [<span class="number">20</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">100</span>, <span class="number">88</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// sort：排序</span></span><br><span class="line">nums.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">item1, itme2</span>) &#123;</span><br><span class="line">  <span class="comment">// item1和item2进行比较</span></span><br><span class="line">  <span class="comment">// 返回是 整数</span></span><br><span class="line">  <span class="comment">// 谁小谁在前面</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 升序</span></span><br><span class="line">  <span class="keyword">return</span> item1 - itme2</span><br><span class="line">  <span class="comment">// 降序</span></span><br><span class="line">  <span class="keyword">return</span> item1 - itme2</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 升序</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(nums) <span class="comment">// [ 4, 10, 15, 20, 88, 100 ]</span></span><br><span class="line"><span class="comment">// 降序</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(nums.<span class="title function_">reverse</span>()) <span class="comment">// [ 100, 88, 20, 15, 10, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>reverse()方法</strong>将数组中元素的位置颠倒，并返回该数组。</li>
+</ul>
+<h4 id="数组的其他高阶方法"><a href="#数组的其他高阶方法" class="headerlink" title="数组的其他高阶方法"></a>数组的其他高阶方法</h4><ul>
+<li><p>arr.forEach</p>
+<ul>
+<li>遍历数组，并且让数组中每一个元素都执行一次对应的方法；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array1 = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>];</span><br><span class="line"></span><br><span class="line">array1.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(element)) <span class="comment">// a b c</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>arr.map</p>
+<ul>
+<li>map()方法创建一个新数组；</li>
+<li>这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成；</li>
+</ul>
+</li>
+<li><p>arr.filter</p>
+<ul>
+<li>filter()方法创建一个新数组；</li>
+<li>新数组中只包含每个元素调用函数返回为true的元素；</li>
+</ul>
+</li>
+<li><p>arr.reduce</p>
+<ul>
+<li>用于计算数组中所有元素的总和；</li>
+<li>对数组中的每个元素按序执行一个由自己提供的reducer函数；</li>
+<li>每一次运行reducer会将先前元素的计算结果作为参数传入，最后将其结果汇总为单个返回值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Date类型的使用"><a href="#Date类型的使用" class="headerlink" title="Date类型的使用"></a>Date类型的使用</h3><ul>
+<li><strong>GMT</strong>表示的是某个时区中的时间，<strong>UTC</strong>表示的是标准时间。</li>
+</ul>
+<h4 id="创建Date对象的方式"><a href="#创建Date对象的方式" class="headerlink" title="创建Date对象的方式"></a>创建Date对象的方式</h4><ul>
+<li>在JavaScript中使用Date来表示和处理时间</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、没有传入任何参数</span></span><br><span class="line"><span class="keyword">var</span> date1 = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date1) <span class="comment">// 2024-04-26T03:10:27.515Z</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、传入参数：时间字符串</span></span><br><span class="line"><span class="keyword">var</span> date2 = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2024-4-26&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date2) <span class="comment">// 2024-04-25T16:00:00.000Z</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、传入具体的年月日时分秒毫秒</span></span><br><span class="line"><span class="keyword">var</span> date3 = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2025</span>, <span class="number">10</span>, <span class="number">10</span> , <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">333</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date3) <span class="comment">// 2025-11-10T01:08:07.333Z</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4、传入一个Unix时间戳</span></span><br><span class="line"><span class="comment">// 1s -&gt; 1000ms</span></span><br><span class="line"><span class="keyword">var</span> date4 = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">100004343433</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date4) <span class="comment">// 1973-03-03T10:59:03.433Z</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Date获取Unix时间戳"><a href="#Date获取Unix时间戳" class="headerlink" title="Date获取Unix时间戳"></a>Date获取Unix时间戳</h4><ul>
+<li>Unix时间戳：它是一个整数值，表示自1970年1月1日00:00:00 UTC以来的毫秒数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Date对象，转成时间戳</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="keyword">var</span> date2 = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2077-03-03&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一：当前时间的时间戳</span></span><br><span class="line"><span class="keyword">var</span> timestamp1 = <span class="title class_">Date</span>.<span class="title function_">now</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(timestamp1) <span class="comment">// 1714114294568</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二：</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="Date类型的使用"><a href="#Date类型的使用" class="headerlink" title="Date类型的使用"></a>Date类型的使用</h3>
+<h4 id="dateString时间的表示方式"><a href="#dateString时间的表示方式" class="headerlink" title="dateString时间的表示方式"></a>dateString时间的表示方式</h4><ul>
+<li>日期的表示方式有两种：<strong>RFC 2822标准</strong>或者<strong>ISO 8601标准</strong>。</li>
+<li>默认打印的时间格式是RFC 2822标准的。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date) <span class="comment">// 2024-04-26T03:24:03.326Z</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date.<span class="title function_">toDateString</span>()) <span class="comment">// Fri Apr 26 2024</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date.<span class="title function_">toISOString</span>()) <span class="comment">// 2024-04-26T03:24:03.326Z</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Date获取信息的方法"><a href="#Date获取信息的方法" class="headerlink" title="Date获取信息的方法"></a>Date获取信息的方法</h4><ul>
+<li>可以从Date对象中获取各种详细的信息：<ul>
+<li>getFullYear()：获取年份（4位数）；</li>
+<li>getMonth()：获取月份，从0到11；</li>
+<li>getDate()：获取当月的具体日期，从1到31；</li>
+<li>getHours()：获取小时；</li>
+<li>getMintutes()：获取分钟；</li>
+<li>getSeconds()：获取秒钟；</li>
+<li>getMilliseconds()：获取毫秒。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1、获取想要的时间信息</span></span><br><span class="line"><span class="keyword">var</span> year = date.<span class="title function_">getFullYear</span>()</span><br><span class="line"><span class="keyword">var</span> month = date.<span class="title function_">getMonth</span>()</span><br><span class="line"><span class="keyword">var</span> day = date.<span class="title function_">getDate</span>()</span><br><span class="line"><span class="keyword">var</span> hour = date.<span class="title function_">getHours</span>()</span><br><span class="line"><span class="keyword">var</span> minute = date.<span class="title function_">getMinutes</span>()</span><br><span class="line"><span class="keyword">var</span> second = date.<span class="title function_">getSeconds</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(year, month + <span class="number">1</span>, day, hour, minute, second) <span class="comment">// 2024 4 26 14 29 5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;year&#125;</span> / <span class="subst">$&#123;month+<span class="number">1</span>&#125;</span> / <span class="subst">$&#123;day&#125;</span> <span class="subst">$&#123;hour&#125;</span> : <span class="subst">$&#123;minute&#125;</span> : <span class="subst">$&#123;second&#125;</span>`</span>) <span class="comment">// 2024 / 4 / 26 14 : 31 : 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> weekday = date.<span class="title function_">getDay</span>() <span class="comment">// 一周中的第几天</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(weekday) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、也可以给date设置时间</span></span><br><span class="line">date.<span class="title function_">setFullYear</span>(<span class="number">2077</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date) <span class="comment">// 2077-04-26T06:40:43.891Z</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动校验</span></span><br><span class="line">date.<span class="title function_">setDate</span>(<span class="number">33</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(date) <span class="comment">// 2024-05-03T06:42:05.175Z</span></span><br></pre></td></tr></table></figure>
+
+
       </section>
 
       
