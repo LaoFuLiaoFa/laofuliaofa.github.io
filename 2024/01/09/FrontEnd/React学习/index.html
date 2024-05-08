@@ -22,7 +22,7 @@
 
   
 
-  <title>递归实现案例及斐波那契数列的实现 | LaoFuLiaoFa&#39;s blog</title>
+  <title>React学习 | LaoFuLiaoFa&#39;s blog</title>
 
   
 
@@ -95,12 +95,17 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">递归实现案例及斐波那契数列的实现</h1>
+          <h1 class="title-wrap">React学习</h1>
           <h2 class="title-sub-wrap">
             <strong>LaoFuLiaoFa</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-04-08T09:32:40.853Z" itemprop="datePublished">2024-04-08</time>
+            <time  class="article-date" datetime="2024-01-09T02:54:59.484Z" itemprop="datePublished">2024-01-09</time>
           </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-04-28T02:14:30.418Z" itemprop="dateUpdated">2024-04-28</time>
+            </h2>
           
           
           <ul class="wrap-list dark">
@@ -130,48 +135,34 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <blockquote>
-<p>*&#x2F;***</p>
-<p>*_ 需求： 封装一个函数，函数可以实现 x 的 n 次方法_</p>
-<p>*<em>&#x2F;</em></p>
+        <h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><h2 id="1-全局安装-React-脚手架"><a href="#1-全局安装-React-脚手架" class="headerlink" title="1.全局安装 React 脚手架"></a>1.全局安装 React 脚手架</h2><p>npm install -g create-react-app</p>
+<h2 id="2-检查脚手架是否安装成功"><a href="#2-检查脚手架是否安装成功" class="headerlink" title="2.检查脚手架是否安装成功"></a>2.检查脚手架是否安装成功</h2><p>create-react-app -v</p>
+<h2 id="3-权限问题"><a href="#3-权限问题" class="headerlink" title="3.权限问题"></a>3.权限问题</h2><p>sudo chmod -R 777 目录路径</p>
+<h2 id="4-创建项目"><a href="#4-创建项目" class="headerlink" title="4.创建项目"></a>4.创建项目</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p>create-react-app 项目名称</p>
+<h3 id="ts"><a href="#ts" class="headerlink" title="ts"></a>ts</h3><p>create-react-app 项目名称 – template typescript</p>
+<h2 id="5-配置-craco-config-js-文件-配置-路径"><a href="#5-配置-craco-config-js-文件-配置-路径" class="headerlink" title="5.配置 craco.config.js 文件(配置@路径)"></a>5.配置 craco.config.js 文件(配置@路径)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resolve</span> = (<span class="params">dir</span>) =&gt; path.<span class="title function_">resolve</span>(__dirname, dir);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">webpack</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@&quot;</span>: <span class="title function_">resolve</span>(<span class="string">&quot;src&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-修改-package-json"><a href="#6-修改-package-json" class="headerlink" title="6.修改 package.json"></a>6.修改 package.json</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco start&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco build&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco test&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;eject&quot;</span><span class="punctuation">:</span> <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-集成-editorconfig-配置"><a href="#7-集成-editorconfig-配置" class="headerlink" title="7.集成 editorconfig 配置"></a>7.集成 editorconfig 配置</h2><p>EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。</p>
+<p>首先在根路径下创建文件.editorconfig:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># https://EditorConfig.org</span></span><br><span class="line"></span><br><span class="line">root = true</span><br><span class="line"></span><br><span class="line"><span class="section"># 表示所有文件适用</span></span><br><span class="line"></span><br><span class="line">[<span class="emphasis">*]</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 设置文件字符集为 utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">charset = utf-8</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进字符风格（tab ｜ space）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_style = space</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 缩进大小</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">indent_size = 2</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 控制换行类型（lf ｜ cr ｜ crlf）</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">end_of_line = lf</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 去除行尾的任意空白字符</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">trim_trailing_whitespace = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 始终在文件末尾插入一个新行</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">insert_final_newline = true</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"># 表示仅 md 文件适用以下规则</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">[*</span>.md]</span><br><span class="line">max<span class="emphasis">_line_</span>length = off</span><br><span class="line">trim<span class="emphasis">_trailing_</span>whitespace = false</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-配置-prettier-和-eslint"><a href="#8-配置-prettier-和-eslint" class="headerlink" title="8.配置 prettier 和 eslint"></a>8.配置 prettier 和 eslint</h2><h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><p>报错：</p>
+<blockquote>
+<p>One of your dependencies, babel-preset-react-app, is importing the “@babel&#x2F;plugin-proposal-private-property-in-object” package without declaring it in its dependencies. This is currently working because “@babel&#x2F;plugin-proposal-private-property-in-object” is already in your node_modules folder for unrelated reasons, but it may break at any time.</p>
+<p>babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add “@babel&#x2F;plugin-proposal-private-property-in-object” to your devDependencies to work around this error. This will make this message go away.</p>
 </blockquote>
-<ul>
-<li>常规方法 1</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pow1</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x ** n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow1</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow1</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+<p>解决：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/plugin-proposal-private-property-<span class="keyword">in</span>-object</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>常规方法 2</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>常规方法 3</li>
-</ul>
-<p>for 循环实现方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pow2</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    result = result * x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow2</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow2</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>递归实现方法（必须有一个结束条件）</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缺点：性能比较低（占用过多的栈内存）</span></span><br><span class="line"><span class="comment">// 优点：写出来的代码非常简洁</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">pow3</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="comment">// 结束条件</span></span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> x;</span><br><span class="line">  <span class="keyword">return</span> x * <span class="title function_">pow3</span>(x, n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow3</span>(<span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow3</span>(<span class="number">3</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-
-<h1 id="递归实现-斐波那契数列"><a href="#递归实现-斐波那契数列" class="headerlink" title="递归实现 - 斐波那契数列"></a>递归实现 - 斐波那契数列</h1><blockquote>
-<p>*&#x2F;***</p>
-<p>*_ 什么是斐波那契数列：_</p>
-<p>*_ 数列：1 1 2 3 5 8 13 21 34 55 … x_</p>
-<p>*_ 位置：1 2 3 4 5 6 7 8 9 10 … n_</p>
-<p>*<em>&#x2F;</em></p>
+<h3 id="二-ts（2307）路径报错"><a href="#二-ts（2307）路径报错" class="headerlink" title="二.ts（2307）路径报错"></a>二.ts（2307）路径报错</h3><p>报错：</p>
+<blockquote>
+<p>Cannot find module ‘@&#x2F;App’ or its corresponding type declarations.ts(2307)</p>
 </blockquote>
-<ul>
-<li>使用递归实现</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fibonaqi</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">fibonaqi</span>(n - <span class="number">1</span>) + <span class="title function_">fibonaqi</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">5</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">10</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi</span>(<span class="number">20</span>));</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用 for 循环实现</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fibonaqi2</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="comment">// 特殊情况（前两个数字）</span></span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// for循环的实现</span></span><br><span class="line">  <span class="keyword">var</span> n1 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> n2 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">    result = n1 + n2;</span><br><span class="line">    n1 = n2;</span><br><span class="line">    n2 = result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">5</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">10</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fibonaqi2</span>(<span class="number">20</span>));</span><br></pre></td></tr></table></figure>
+<p>解决：</p>
+<p>找到 tsconfig.json 文件，在 compilerOptions 的作用域里增加如下代码：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;baseUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;src/*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
       </section>
 
@@ -184,8 +175,8 @@
     
     <div class="card-text">
       
-        <a href="/2024/04/09/js/%E5%85%A8%E5%B1%80---%E5%B1%80%E9%83%A8---%E5%A4%96%E9%83%A8%E5%8F%98%E9%87%8F/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">全局 - 局部 - 外部变量</h2>
+        <a href="/2024/01/20/Vue/Vue%E5%AD%A6%E4%B9%A0/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Vue学习</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -193,20 +184,6 @@
   </article>
 </div>
           
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2024/04/08/js/js%E6%95%B0%E5%AD%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">js数字格式化的工具函数封装</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
           
         </nav>
       
@@ -240,7 +217,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>16</span>
+        <span>19</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
