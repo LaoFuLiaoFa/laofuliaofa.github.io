@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+
+  
+
+  
+
+  
+    <meta name="author" content="LaoFuLiaoFa">
+  
+
+  
+
+  
+
+  <title>node学习笔记 | LaoFuLiaoFa&#39;s blog</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  <!--mathjax latex数学公式显示支持-->
+  
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://gd-hbimg.huaban.com/e53787b529410da83b6bf6522d447d469acdf5e158b960-bYKSBR)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          LaoFuLiaoFa&#39;s blog
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">node学习笔记</h1>
+          <h2 class="title-sub-wrap">
+            <strong>LaoFuLiaoFa</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2024-09-04T06:35:57.981Z" itemprop="datePublished">2024-09-04</time>
+          </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-09-25T09:15:51.075Z" itemprop="dateUpdated">2024-09-25</time>
+            </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h1 id="一、Node基础"><a href="#一、Node基础" class="headerlink" title="一、Node基础"></a>一、Node基础</h1><h2 id="JavaScript代码的运行"><a href="#JavaScript代码的运行" class="headerlink" title="JavaScript代码的运行"></a>JavaScript代码的运行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">num1, num2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">20</span>, <span class="number">30</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">20</span>, <span class="number">30</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">20</span>, <span class="number">30</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;bbb&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;定时器被执行&quot;</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// node index.js</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-的-REPL"><a href="#Node-的-REPL" class="headerlink" title="Node 的 REPL"></a>Node 的 REPL</h3><ul>
+<li>什么是 REPL？<ul>
+<li>REPL 是 Read-Eval-Print Loop 的简称，翻译为”读取-求值-输出”循环；</li>
+<li>REPL 是一个简单的、交互式的编程环境。</li>
+</ul>
+</li>
+<li>浏览器的 Console 就可以看成一个 REPL</li>
+</ul>
+<h2 id="给Node传递参数"><a href="#给Node传递参数" class="headerlink" title="给Node传递参数"></a>给Node传递参数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// console.log(process.argv);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">clear</span>();</span><br><span class="line"></span><br><span class="line">process.<span class="property">argv</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">trace</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>正常情况下执行一个 node 程序，直接跟上对应的文件即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node index.js</span><br></pre></td></tr></table></figure></li>
+<li><p>但是，在某些情况下执行 node 程序的过程中，可能希望给 node 传递一些参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node index.js env=development lisijia</span><br></pre></td></tr></table></figure></li>
+<li><p>如果这样来使用程序，就意味着需要在程序中获取到传递的参数：</p>
+<ul>
+<li>获取参数其实是在 process 的内置对象中的。</li>
+</ul>
+</li>
+<li><p>将参数信息遍历出来，使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(process.argv);</span><br><span class="line"></span><br><span class="line">process.argv.forEach((item) =&gt; &#123;</span><br><span class="line">  console.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Node的输出"><a href="#Node的输出" class="headerlink" title="Node的输出"></a>Node的输出</h3><ul>
+<li><p>console.log</p>
+<ul>
+<li>最常用的输入内容的方式</li>
+</ul>
+</li>
+<li><p>console.clear</p>
+<ul>
+<li>清空控制台</li>
+</ul>
+</li>
+<li><p>console.trace</p>
+<ul>
+<li>打印函数的调用栈</li>
+</ul>
+</li>
+</ul>
+<h2 id="Node中的全局对象"><a href="#Node中的全局对象" class="headerlink" title="Node中的全局对象"></a>Node中的全局对象</h2><h3 id="特殊全局对象"><a href="#特殊全局对象" class="headerlink" title="特殊全局对象"></a>特殊全局对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(__dirname);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(__filename);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这些全局对象可以在模块中任意使用，但是在命令行交互中是不可以使用的；<ul>
+<li>包括：__ dirname 、__filename、exports、module、require()</li>
+</ul>
+</li>
+<li><strong>__dirname：</strong>获取当前文件所在的路径：<ul>
+<li>注意：不包括后面的文件名</li>
+</ul>
+</li>
+<li><strong>__filename：</strong>获取当前文件所在的路径和文件名称：<ul>
+<li>注意：包括后面的文件名称</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见的全局对象"><a href="#常见的全局对象" class="headerlink" title="常见的全局对象"></a>常见的全局对象</h3><ul>
+<li><strong>process对象：</strong>process提供了Node进程中相关的信息：<ul>
+<li>比如Node的运行环境、参数信息等；</li>
+</ul>
+</li>
+<li><strong>console对象：</strong>提供了简单的调试控制台。</li>
+<li><strong>定时器函数：</strong>在Node中使用定时器有好几种方式<ul>
+<li>setTimeout(callback, delay[, …args])：callback在delay毫秒后执行一次；</li>
+<li>setInterval(callback, delay[, …args])：callback每delay毫秒重复执行一次；</li>
+<li>setImmediate(callback[, …args])：callbackI &#x2F; O事件后的回调的“立即”执行；</li>
+<li>process.nextTick(callback[, …args])：添加到下一次tick队列中；</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、JavaScript模块化"><a href="#二、JavaScript模块化" class="headerlink" title="二、JavaScript模块化"></a>二、JavaScript模块化</h1><h2 id="CommonJS和Node"><a href="#CommonJS和Node" class="headerlink" title="CommonJS和Node"></a>CommonJS和Node</h2><ul>
+<li>Node中实现CommonJS的本质就是对象的引用赋值；</li>
+</ul>
+<h3 id="require细节"><a href="#require细节" class="headerlink" title="require细节"></a>require细节</h3><ul>
+<li>require是一个函数，可以帮助我们引入一个文件（模块）中导入的对象；</li>
+<li><strong>比较常见的查找规则</strong>：<ul>
+<li>导入格式：require(X)。</li>
+<li>情况一：X是一个核心模块，比如path、http<ul>
+<li>直接返回核心模块，并且停止查找</li>
+</ul>
+</li>
+<li>情况二：X是以 .&#x2F; 或 ..&#x2F; 或 &#x2F;（根目录）开头的<ul>
+<li>第一步：将X当做一个文件在对应的目录下查找；<ul>
+<li>如果有后缀名，按照后缀名的格式查找对应的文件</li>
+<li>如果没有后缀名，会按照如下顺序：<ul>
+<li>直接查找文件X</li>
+<li>查找X.js文件</li>
+<li>查找X.json文件</li>
+<li>查找X.node文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第二步：没有找到对应的文件，将X作为一个目录<ul>
+<li>查找目录下面的index文件<ul>
+<li>查找X&#x2F;index.js文件</li>
+<li>查找X&#x2F;index.json文件</li>
+<li>查找X&#x2F;index.node文件</li>
+<li>如果没有找到，那么报错：not found</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模块的加载过程"><a href="#模块的加载过程" class="headerlink" title="模块的加载过程"></a>模块的加载过程</h3><ul>
+<li>模块在被第一次引入时，模块中的js代码会被运行一次；</li>
+<li>模块被多次引入时，会缓存，最终只加载（运行）一次；<ul>
+<li>因为每个模块对象module都有一个属性：loaded；</li>
+<li>为false表示还没有加载，为true表示已经加载。</li>
+</ul>
+</li>
+<li>Node采用的是深度优先算法（图结构）。</li>
+</ul>
+<h3 id="CommonJS规范缺点"><a href="#CommonJS规范缺点" class="headerlink" title="CommonJS规范缺点"></a>CommonJS规范缺点</h3><ul>
+<li>CommonJS加载模块是同步的：<ul>
+<li>同步的意味着只有等到对应的模块加载完毕，当前模块中的内容才能被运行；</li>
+<li>这个在服务器不会有什么问题，因为服务器加载的js文件都是本地文件，加载速度非常快；</li>
+</ul>
+</li>
+<li>如果将它应用于浏览器：<ul>
+<li>浏览器加载js文件需要先从服务器将文件下载下来，之后在加载运行；</li>
+<li>采用同步的就意味着后续的js代码都无法正常运行，即使是一些简单的DOM操作；</li>
+</ul>
+</li>
+<li>在浏览器中，通常不使用CommonJS规范：<ul>
+<li>当然在webpack中使用CommonJS是另外一回事；</li>
+<li>因为它会将代码转成浏览器可以直接执行的代码；</li>
+</ul>
+</li>
+</ul>
+<h2 id="包管理工具深入解析"><a href="#包管理工具深入解析" class="headerlink" title="包管理工具深入解析"></a>包管理工具深入解析</h2><h3 id="npm-install原理"><a href="#npm-install原理" class="headerlink" title="npm install原理"></a>npm install原理</h3><p>![image-20240919下午54155440](&#x2F;Users&#x2F;laofuliaofa&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20240919下午54155440.png)</p>
+<h1 id="三、http模块"><a href="#三、http模块" class="headerlink" title="三、http模块"></a>三、http模块</h1><h2 id="web服务器初体验"><a href="#web服务器初体验" class="headerlink" title="web服务器初体验"></a>web服务器初体验</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个web服务器</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Hello Server&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动服务器，并且制定端口号和主机</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>服务器修改后自启动</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g nodemon</span><br></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodemon 文件名</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建server的两种方式"><a href="#创建server的两种方式" class="headerlink" title="创建server的两种方式"></a>创建server的两种方式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">const server1 = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">  res.end(&quot;Server1&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">server1.listen(8000, () =&gt; &#123;</span><br><span class="line">  console.log(&quot;server1启动成功～&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const server2 = new http.Server((req, res) =&gt; &#123;</span><br><span class="line">  res.end(&quot;Server2&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">server2.listen(8001, () =&gt; &#123;</span><br><span class="line">  console.log(&quot;server2启动成功～&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="request对象"><a href="#request对象" class="headerlink" title="request对象"></a>request对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// request对象中封装了客户端给服务端传递过来的所有信息</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">method</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">headers</span>);</span><br><span class="line"></span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Hello Server&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功～&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="request对象-url"><a href="#request对象-url" class="headerlink" title="request对象-url"></a>request对象-url</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> qs = <span class="built_in">require</span>(<span class="string">&quot;querystring&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 最基本的使用方式</span></span><br><span class="line">  <span class="comment">// if (req.url === &quot;/login&quot;) &#123;</span></span><br><span class="line">  <span class="comment">//   res.end(&quot;欢迎回来～&quot;);</span></span><br><span class="line">  <span class="comment">// &#125; else if (req.url === &quot;/users&quot;) &#123;</span></span><br><span class="line">  <span class="comment">//   res.end(&quot;用户列表～&quot;);</span></span><br><span class="line">  <span class="comment">// &#125; else &#123;</span></span><br><span class="line">  <span class="comment">//   res.end(&quot;错误请求，检查～&quot;);</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// /login?username=lisijia&amp;password=123</span></span><br><span class="line">  <span class="keyword">const</span> &#123; pathname, query &#125; = url.<span class="title function_">parse</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (pathname === <span class="string">&quot;/login&quot;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(query);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(qs.<span class="title function_">parse</span>(query));</span><br><span class="line">    <span class="keyword">const</span> &#123; username, password &#125; = qs.<span class="title function_">parse</span>(query);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(username, password);</span><br><span class="line">    res.<span class="title function_">end</span>(<span class="string">&quot;请求结果～&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功～&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">服务器启动成功～</span><br><span class="line">username=lisijia&amp;password=123</span><br><span class="line">[Object: null prototype] &#123; username: &#x27;lisijia&#x27;, password: &#x27;123&#x27; &#125;</span><br><span class="line">lisijia 123</span><br></pre></td></tr></table></figure>
+
+<p>postman：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8888/login?username=lisijia&amp;password=123</span><br></pre></td></tr></table></figure>
+
+<h3 id="request对象-method"><a href="#request对象-method" class="headerlink" title="request对象-method"></a>request对象-method</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> qs = <span class="built_in">require</span>(<span class="string">&quot;querystring&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; pathname &#125; = url.<span class="title function_">parse</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">if</span> (pathname === <span class="string">&quot;/login&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">method</span> === <span class="string">&quot;POST&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// 拿到body中的数据</span></span><br><span class="line">      req.<span class="title function_">setEncoding</span>(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">      req.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>, <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(data.toString());</span></span><br><span class="line">        <span class="comment">// console.log(data);</span></span><br><span class="line">        <span class="keyword">const</span> &#123; username, password &#125; = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(username, password);</span><br><span class="line">      &#125;);</span><br><span class="line">      res.<span class="title function_">end</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8888</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务器启动成功～&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回响应结果"><a href="#返回响应结果" class="headerlink" title="返回响应结果"></a>返回响应结果</h2><ul>
+<li>给客户端响应的结果数据，可以通过两种方式：<ul>
+<li>Write方法：这种方式是直接写出数据，但是并没有关闭流；</li>
+<li>end方法：这种方式是写出最后的数据，并且写出后会关闭流；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 响应数据的方式有两个</span></span><br><span class="line">res.<span class="title function_">write</span>(<span class="string">&#x27;111&#x27;</span>)</span><br><span class="line">res.<span class="title function_">ens</span>(<span class="string">&#x27;222&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果没有调用 end和close，客户端将会一直等待结果：所以客户端在发送网络请求时，都会设置超时时间。</li>
+</ul>
+<h1 id="四、express框架"><a href="#四、express框架" class="headerlink" title="四、express框架"></a>四、express框架</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><blockquote>
+<p>通过express提供的脚手架，直接创建一个应用的骨架。</p>
+</blockquote>
+<ul>
+<li><p>安装脚手架</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express-generator</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express express-demo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node bin/www</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><blockquote>
+<p>从零搭建自己的express应用结构</p>
+</blockquote>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&quot;express&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// express其实是一个函数：createApplication</span></span><br><span class="line"><span class="comment">// 返回app</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听默认路径</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/&quot;</span>, <span class="function">(<span class="params">req, res, nect</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&quot;/login&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Welcome&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 开启监听</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器开启成功～&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="认识中间件"><a href="#认识中间件" class="headerlink" title="认识中间件"></a>认识中间件</h2><ul>
+<li>express是一个路由和中间件的Web框架，它本身的功能非常少；<ul>
+<li>express应用程序本质上是一系列中间件函数的调用。</li>
+</ul>
+</li>
+<li>中间件的本质是传递给express的一个回调函数；<ul>
+<li>这个回调函数接受三个参数：<ul>
+<li>请求对象（request对象）；</li>
+<li>响应对象（response对象）；</li>
+<li>next函数（在express中定义的用于执行下一个中间件的函数）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>中间件可以执行哪些任务：<ul>
+<li>执行任何代码；</li>
+<li>更改请求（request）和响应（response）对象；</li>
+<li>结束请求-响应周期（返回数据）；</li>
+<li>调用栈中的下一个中间件。</li>
+</ul>
+</li>
+<li>如果当前中间件功能没有结束请求-响应周期，则必须调用next()将控制权传递给下一个中间件功能，否则，请求将被挂起。</li>
+</ul>
+<h3 id="普通中间件"><a href="#普通中间件" class="headerlink" title="普通中间件"></a>普通中间件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编写普通的中间件</span></span><br><span class="line"><span class="comment">// use注册一个中间件(回调函数)</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;注册了第01个普通的中间件~&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;注册了第02个普通的中间件~&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;注册了第03个普通的中间件~&quot;</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Hello Middleware&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;普通中间件服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="路径中间件"><a href="#路径中间件" class="headerlink" title="路径中间件"></a>路径中间件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;common middleware01&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径匹配的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/home&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home middleware 01&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中间插入了一个普通的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;common middleware02&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/home&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home middleware 02&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="路径和方法中间件"><a href="#路径和方法中间件" class="headerlink" title="路径和方法中间件"></a>路径和方法中间件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径和方法匹配的中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;common middleware01&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/home&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home path and method middleware01&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;login path and method middleware01&quot;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接注册中间件"><a href="#连接注册中间件" class="headerlink" title="连接注册中间件"></a>连接注册中间件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;common middleware 01&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/home&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home path and method middleware 01&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/home&quot;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home path and method middleware 02&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home path and method middleware 03&quot;</span>);</span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;home path and method middleware 04&quot;</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;home page&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="应用中间件"><a href="#应用中间件" class="headerlink" title="应用中间件"></a>应用中间件</h3><ul>
+<li>将请求日志记录下来，使用express官网开发的第三方库：morgan<ul>
+<li>需要单独安装：npm install morgan</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> morgan = <span class="built_in">require</span>(<span class="string">&#x27;morgan&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> writerStream = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./logs/access.log&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">flags</span>: <span class="string">&quot;a+&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">morgan</span>(<span class="string">&quot;combined&quot;</span>, &#123;<span class="attr">stream</span>: writerStream&#125;));</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/home&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传文件中间件"><a href="#上传文件中间件" class="headerlink" title="上传文件中间件"></a>上传文件中间件</h3><ul>
+<li>上传文件，使用express提供的multer来完成。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">&#x27;multer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> storage = multer.<span class="title function_">diskStorage</span>(&#123;</span><br><span class="line">  <span class="attr">destination</span>: <span class="function">(<span class="params">req, file, cb</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="string">&#x27;./uploads/&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">filename</span>: <span class="function">(<span class="params">req, file, cb</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>() + path.<span class="title function_">extname</span>(file.<span class="property">originalname</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> upload = <span class="title function_">multer</span>(&#123;</span><br><span class="line">  <span class="comment">// dest: &#x27;./uploads/&#x27;</span></span><br><span class="line">  storage</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, upload.<span class="title function_">any</span>(), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;用户登录成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/upload&#x27;</span>, upload.<span class="title function_">array</span>(<span class="string">&#x27;file&#x27;</span>), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">files</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;文件上传成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;form-data解析服务器启动成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用form-data上传文件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">&#x27;multer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> storage = multer.<span class="title function_">diskStorage</span>(&#123;</span><br><span class="line">  <span class="attr">destination</span>: <span class="function">(<span class="params">req, file, cb</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="string">&#x27;./uploads/&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">filename</span>: <span class="function">(<span class="params">req, file, cb</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">cb</span>(<span class="literal">null</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>() + path.<span class="title function_">extname</span>(file.<span class="property">originalname</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> upload = <span class="title function_">multer</span>(&#123;</span><br><span class="line">  <span class="comment">// dest: &#x27;./uploads/&#x27;</span></span><br><span class="line">  storage</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, upload.<span class="title function_">any</span>(), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;用户登录成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/upload&#x27;</span>, upload.<span class="title function_">array</span>(<span class="string">&#x27;file&#x27;</span>), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">files</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;文件上传成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;form-data解析服务器启动成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端发送请求的方式"><a href="#客户端发送请求的方式" class="headerlink" title="客户端发送请求的方式"></a>客户端发送请求的方式</h2><ul>
+<li><p>客户端传递到服务器参数的方法常见的是5种：</p>
+<ul>
+<li>方式一：通过get请求中的URL的params；</li>
+<li>方式二：通过get请求中的URL的query；</li>
+<li>方式三：通过post请求中的body的json格式；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己编写的json解析</span></span><br><span class="line"><span class="comment">// app.use((req, res, next) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   if (req.headers[&quot;content-type&quot;] === &#x27;application/json&#x27;) &#123;</span></span><br><span class="line"><span class="comment">//     req.on(&#x27;data&#x27;, (data) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//       const info = JSON.parse(data.toString());</span></span><br><span class="line"><span class="comment">//       req.body = info;</span></span><br><span class="line"><span class="comment">//     &#125;)</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//     req.on(&#x27;end&#x27;, () =&gt; &#123;</span></span><br><span class="line"><span class="comment">//       next();</span></span><br><span class="line"><span class="comment">//     &#125;)</span></span><br><span class="line"><span class="comment">//   &#125; else &#123;</span></span><br><span class="line"><span class="comment">//     next();</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用express提供给我们的body解析</span></span><br><span class="line"><span class="comment">// body-parser: express3.x 内置express框架</span></span><br><span class="line"><span class="comment">// body-parser: express4.x 被分离出去</span></span><br><span class="line"><span class="comment">// body-parser类似功能: express4.16.x 内置成函数</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line"><span class="comment">// extended</span></span><br><span class="line"><span class="comment">// true: 那么对urlencoded进行解析时, 它使用的是第三方库: qs</span></span><br><span class="line"><span class="comment">// false: 那么对urlencoded进行解析时, 它使用的是Node内置模块: querystring</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;));</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Coderwhy, Welcome Back~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/products&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Upload Product Info Success~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式四：通过post请求中的body的x-www-form-urlencoded格式；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用express提供给我们的body解析</span></span><br><span class="line"><span class="comment">// body-parser: express3.x 内置express框架</span></span><br><span class="line"><span class="comment">// body-parser: express4.x 被分离出去</span></span><br><span class="line"><span class="comment">// body-parser类似功能: express4.16.x 内置成函数</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line"><span class="comment">// extended</span></span><br><span class="line"><span class="comment">// true: 那么对urlencoded进行解析时, 它使用的是第三方库: qs</span></span><br><span class="line"><span class="comment">// false: 那么对urlencoded进行解析时, 它使用的是Node内置模块: querystring</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;));</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Coderwhy, Welcome Back~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/products&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;Upload Product Info Success~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;express初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式五：通过post请求中的form-data格式；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">&#x27;multer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">urlencoded</span>(&#123; <span class="attr">extended</span>: <span class="literal">true</span> &#125;));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> upload = <span class="title function_">multer</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(upload.<span class="title function_">any</span>());</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&quot;用户登录成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;form-data解析服务器启动成功~&quot;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Express的路由"><a href="#Express的路由" class="headerlink" title="Express的路由"></a>Express的路由</h2><ul>
+<li>使用 express.Router来创建一个路由处理程序：<ul>
+<li>一个Router实例拥有完整的中间件和路由系统；</li>
+<li>因此，它也被称为 迷你应用程序（mini-app）。</li>
+</ul>
+</li>
+<li>users.js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 举个例子:</span></span><br><span class="line"><span class="comment"> *   请求所有的用户信息: get /users</span></span><br><span class="line"><span class="comment"> *   请求所有的某个用户信息: get /users/:id</span></span><br><span class="line"><span class="comment"> *   请求所有的某个用户信息: post /users body &#123;username: passwod:&#125;</span></span><br><span class="line"><span class="comment"> *   请求所有的某个用户信息: delete /users/:id</span></span><br><span class="line"><span class="comment"> *   请求所有的某个用户信息: patch /users/:id &#123;nickname: &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">json</span>([<span class="string">&quot;why&quot;</span>, <span class="string">&quot;kobe&quot;</span>, <span class="string">&quot;lilei&quot;</span>]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/:id&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">json</span>(<span class="string">`<span class="subst">$&#123;req.params.id&#125;</span>用户的信息`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">post</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">json</span>(<span class="string">&quot;create user success~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>路由的使用.js</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> userRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routers/users&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> productRouter = <span class="built_in">require</span>(<span class="string">&#x27;./routers/products&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/users&quot;</span>, userRouter);</span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&quot;/products&quot;</span>, productRouter);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;路由服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="静态资源服务器"><a href="#静态资源服务器" class="headerlink" title="静态资源服务器"></a>静态资源服务器</h2><ul>
+<li>部署静态资源可以选择很多方式：<ul>
+<li>Node也可以作为静态资源服务器，并且express提供了方便部署静态资源的方法；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&#x27;./build&#x27;</span>));</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;路由服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="express的错误处理"><a href="#express的错误处理" class="headerlink" title="express的错误处理"></a>express的错误处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">USERNAME_DOES_NOT_EXISTS</span> = <span class="string">&quot;USERNAME_DOES_NOT_EXISTS&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">USERNAME_ALREADY_EXISTS</span> = <span class="string">&quot;USERNAME_ALREADY_EXISTS&quot;</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/login&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 加入在数据中查询用户名时, 发现不存在</span></span><br><span class="line">  <span class="keyword">const</span> isLogin = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (isLogin) &#123;</span><br><span class="line">    res.<span class="title function_">json</span>(<span class="string">&quot;user login success~&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// res.type(400);</span></span><br><span class="line">    <span class="comment">// res.json(&quot;username does not exists~&quot;)</span></span><br><span class="line">    <span class="title function_">next</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="variable constant_">USERNAME_DOES_NOT_EXISTS</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/register&#x27;</span>, <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 加入在数据中查询用户名时, 发现不存在</span></span><br><span class="line">  <span class="keyword">const</span> isExists = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">if</span> (!isExists) &#123;</span><br><span class="line">    res.<span class="title function_">json</span>(<span class="string">&quot;user register success~&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// res.type(400);</span></span><br><span class="line">    <span class="comment">// res.json(&quot;username already exists~&quot;)</span></span><br><span class="line">    <span class="title function_">next</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="variable constant_">USERNAME_ALREADY_EXISTS</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">err, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> status = <span class="number">400</span>;</span><br><span class="line">  <span class="keyword">let</span> message = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span>(err.<span class="property">message</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">USERNAME_DOES_NOT_EXISTS</span>:</span><br><span class="line">      message = <span class="string">&quot;username does not exists~&quot;</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="attr">USERNAME_ALREADY_EXISTS</span>:</span><br><span class="line">      message = <span class="string">&quot;USERNAME_ALREADY_EXISTS~&quot;</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="attr">default</span>: </span><br><span class="line">      message = <span class="string">&quot;NOT FOUND~&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res.<span class="title function_">status</span>(status);</span><br><span class="line">  res.<span class="title function_">json</span>(&#123;</span><br><span class="line">    <span class="attr">errCode</span>: status,</span><br><span class="line">    <span class="attr">errMessage</span>: message</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;路由服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、Koa框架"><a href="#五、Koa框架" class="headerlink" title="五、Koa框架"></a>五、Koa框架</h1><h2 id="Koa基础"><a href="#Koa基础" class="headerlink" title="Koa基础"></a>Koa基础</h2><ul>
+<li><p>koa注册的中间件提供了两个参数：</p>
+<ul>
+<li><p>ctx：上下文（Context）对象；</p>
+</li>
+<li><p>koa并没有像express一样，将req和res分开，而是将它们作为ctx的属性；</p>
+<ul>
+<li><p>ctx代表依次请求的上下文对象；</p>
+<ul>
+<li>ctx.request：获取请求对象；</li>
+<li>ctx.response：获取响应对象；</li>
+</ul>
+</li>
+<li><p>next：本质上是一个dispatch，类似于之前的next；</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Koa中间件"><a href="#Koa中间件" class="headerlink" title="Koa中间件"></a>Koa中间件</h2><ul>
+<li><p>Koa通过创建的app对象，注册中间件只能通过use方法：</p>
+</li>
+<li><p>Koa并没有提供methods的方式来注册中间件，也没有提供path中间件来匹配路径；</p>
+</li>
+<li><p>真实开发中将路径和method分离的方法：</p>
+<ul>
+<li>方式一：根据request自己来判断；</li>
+<li>方式二：使用第三方路由中间件。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// use注册中间件</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (ctx.<span class="property">request</span>.<span class="property">url</span> === <span class="string">&#x27;/login&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ctx.<span class="property">request</span>.<span class="property">method</span> === <span class="string">&#x27;GET&#x27;</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;来到了这里~&quot;</span>);</span><br><span class="line">      ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;Login Success~&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;other request~&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有提供下面的注册方式</span></span><br><span class="line"><span class="comment">// methods方式: app.get()/.post</span></span><br><span class="line"><span class="comment">// path方式: app.use(&#x27;/home&#x27;, (ctx, next) =&gt; &#123;&#125;)</span></span><br><span class="line"><span class="comment">// 连续注册: app.use((ctx, next) =&gt; &#123;</span></span><br><span class="line"><span class="comment">// &#125;, (ctx, next) =&gt; &#123;</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由的使用"><a href="#路由的使用" class="headerlink" title="路由的使用"></a>路由的使用</h2><ul>
+<li>koa官方并没有提供路由的库，可以选择第三方库：koa-router</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa-router</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以先封装一个 user.router.js 的文件：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Router</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;<span class="attr">prefix</span>: <span class="string">&quot;/users&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;User Lists~&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">put</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;put request~&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在app中将router.routes()注册为中间件：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userRouter = <span class="built_in">require</span>(<span class="string">&#x27;./router/user&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ctx.response.body = &quot;Hello World&quot;;</span></span><br><span class="line">  <span class="title function_">next</span>();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(userRouter.<span class="title function_">routes</span>());</span><br><span class="line">app.<span class="title function_">use</span>(userRouter.<span class="title function_">allowedMethods</span>());</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa路由服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：allowedMethods用于判断某一个method是否支持：</p>
+<ul>
+<li><p>如果请求 get，那么是正常的请求，因为有实现get；</p>
+</li>
+<li><p>如果请求 put、delete、patch，那么就自动报错：</p>
+<ul>
+<li>Method Not Allowed，状态码：405；</li>
+</ul>
+</li>
+<li><p>如果请求 link、copy、lock，那么久自动报错：</p>
+<ul>
+<li>Not Implemented，状态码：501；</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="参数解析：params-query"><a href="#参数解析：params-query" class="headerlink" title="参数解析：params - query"></a>参数解析：params - query</h2><ul>
+<li>请求地址：<a target="_blank" rel="noopener" href="http://localhost:8000/users/123">http://localhost:8000/users/123</a><ul>
+<li>获取params：</li>
+</ul>
+</li>
+<li>请求地址：<a target="_blank" rel="noopener" href="http://localhost:8000/login?username=why&password=123">http://localhost:8000/login?username=why&amp;password=123</a><ul>
+<li>获取query：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Router</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userRouter = <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;<span class="attr">prefix</span>: <span class="string">&#x27;/users&#x27;</span>&#125;);</span><br><span class="line"></span><br><span class="line">userRouter.<span class="title function_">get</span>(<span class="string">&#x27;/:id&#x27;</span>, <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">request</span>.<span class="property">params</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">request</span>.<span class="property">query</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.use((ctx, next) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(ctx.request.url);</span></span><br><span class="line"><span class="comment">//   console.log(ctx.request.query);</span></span><br><span class="line"><span class="comment">//   console.log(ctx.request.params);</span></span><br><span class="line"><span class="comment">//   ctx.response.body = &quot;Hello World&quot;;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(userRouter.<span class="title function_">routes</span>());</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;参数处理服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数解析：json-x-www-form-urlencoded-form-data"><a href="#参数解析：json-x-www-form-urlencoded-form-data" class="headerlink" title="参数解析：json &#x2F; x-www-form-urlencoded &#x2F; form-data"></a>参数解析：json &#x2F; x-www-form-urlencoded &#x2F; form-data</h2><ul>
+<li>请求地址：<a target="_blank" rel="noopener" href="http://localhost:8000/login%EF%BC%9B">http://localhost:8000/login；</a></li>
+<li>body是json格式 &#x2F; x-www-form-urlencoded格式；<ul>
+<li>获取json数据：<ul>
+<li>安装依赖： npm install koa-bodyparser；</li>
+<li>使用 koa-bodyparser的中间件。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>body是form-data格式;<ul>
+<li>解析body中的数据，需要使用multer；</li>
+<li>安装依赖：npm install koa-multer；</li>
+<li>使用 multer中间件。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;koa-bodyparser&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">&#x27;koa-multer&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Router</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> upload = <span class="title function_">multer</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">bodyParser</span>());</span><br><span class="line">app.<span class="title function_">use</span>(upload.<span class="title function_">any</span>());</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">request</span>.<span class="property">body</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">req</span>.<span class="property">body</span>);</span><br><span class="line">  ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Multer上传文件"><a href="#Multer上传文件" class="headerlink" title="Multer上传文件"></a>Multer上传文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Router</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">&#x27;koa-multer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"><span class="keyword">const</span> uploadRouter = <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;<span class="attr">prefix</span>: <span class="string">&#x27;/upload&#x27;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// const storage = multer.diskStorage(&#123;</span></span><br><span class="line"><span class="comment">//   destination,</span></span><br><span class="line"><span class="comment">//   filename,</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> upload = <span class="title function_">multer</span>(&#123;</span><br><span class="line">  <span class="attr">dest</span>: <span class="string">&#x27;./uploads/&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">uploadRouter.<span class="title function_">post</span>(<span class="string">&#x27;/avatar&#x27;</span>, upload.<span class="title function_">single</span>(<span class="string">&#x27;avatar&#x27;</span>), <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">req</span>.<span class="property">file</span>);</span><br><span class="line">  ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&quot;上传头像成功~&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(uploadRouter.<span class="title function_">routes</span>());</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据的响应"><a href="#数据的响应" class="headerlink" title="数据的响应"></a>数据的响应</h2><ul>
+<li><p>输出结果：body将响应主体设置为以下之一：</p>
+<ul>
+<li>string ：字符串数据</li>
+<li>Buffer ：Buffer数据</li>
+<li>Stream ：流数据</li>
+<li>Object|| Array：对象或者数组</li>
+<li>null ：不输出任何内容</li>
+<li>如果response.status尚未设置，Koa会自动将状态设置为200或204。</li>
+</ul>
+</li>
+<li><p>请求状态：status</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ctx.request.query</span></span><br><span class="line">  <span class="comment">// ctx.query</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置内容</span></span><br><span class="line">  <span class="comment">// ctx.response.body</span></span><br><span class="line">  <span class="comment">// ctx.response.body = &quot;Hello world~&quot;</span></span><br><span class="line">  <span class="comment">// ctx.response.body = &#123;</span></span><br><span class="line">  <span class="comment">//   name: &quot;lisijia&quot;,</span></span><br><span class="line">  <span class="comment">//   age: 18,</span></span><br><span class="line">  <span class="comment">//   avatar_url: &quot;https://abc.png&quot;</span></span><br><span class="line">  <span class="comment">// &#125;;</span></span><br><span class="line">  <span class="comment">// 设置状态码</span></span><br><span class="line">  <span class="comment">// ctx.response.status = 400;</span></span><br><span class="line">  <span class="comment">// ctx.response.body = [&quot;abc&quot;, &quot;cba&quot;, &quot;nba&quot;];</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// ctx.response.body = &quot;Hello World~&quot;;</span></span><br><span class="line">  ctx.<span class="property">status</span> = <span class="number">404</span>;</span><br><span class="line">  ctx.<span class="property">body</span> = <span class="string">&quot;Hello Koa~&quot;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="静态服务器"><a href="#静态服务器" class="headerlink" title="静态服务器"></a>静态服务器</h2><ul>
+<li>koa并没有内置部署相关的功能，所以需要使用第三方库：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa-<span class="keyword">static</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>部署的过程类似于express：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> staticAssets = <span class="built_in">require</span>(<span class="string">&#x27;koa-static&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">staticAssets</span>(<span class="string">&#x27;./build&#x27;</span>));</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> isLogin = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (!isLogin) &#123;</span><br><span class="line">    ctx.<span class="property">app</span>.<span class="title function_">emit</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;您还没有登录~&quot;</span>), ctx);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err, ctx</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">status</span> = <span class="number">401</span>;</span><br><span class="line">  ctx.<span class="property">body</span> = err.<span class="property">message</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="六、MySQL"><a href="#六、MySQL" class="headerlink" title="六、MySQL"></a>六、MySQL</h1>
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/09/03/Node/%E4%BD%BF%E7%94%A8n%E5%88%87%E6%8D%A2node%E7%89%88%E6%9C%AC/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">使用n切换node版本</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://img2.imgtp.com/2024/04/08/NKjMziOw.JPG" class="soft-size--round soft-style--box" alt="LaoFuLiaoFa">
+    
+    
+      <h2>LaoFuLiaoFa</h2>
+    
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>21</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>达瓦里氏。</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/LaoFuLiaoFa" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+    </div>
+     
+    <p>&copy; 2024 <a href="/" target="_blank">LaoFuLiaoFa</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+<!-- copy button  -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+<!-- https://clipboardjs.com/ -->
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
