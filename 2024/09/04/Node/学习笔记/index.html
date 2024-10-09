@@ -104,7 +104,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-09-25T09:15:51.075Z" itemprop="dateUpdated">2024-09-25</time>
+              <time  class="article-updated" datetime="2024-10-09T01:18:22.077Z" itemprop="dateUpdated">2024-10-09</time>
             </h2>
           
           
@@ -551,7 +551,154 @@
 
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> isLogin = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span> (!isLogin) &#123;</span><br><span class="line">    ctx.<span class="property">app</span>.<span class="title function_">emit</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;您还没有登录~&quot;</span>), ctx);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err, ctx</span>) =&gt;</span> &#123;</span><br><span class="line">  ctx.<span class="property">status</span> = <span class="number">401</span>;</span><br><span class="line">  ctx.<span class="property">body</span> = err.<span class="property">message</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;koa初体验服务器启动成功~&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<h1 id="六、MySQL"><a href="#六、MySQL" class="headerlink" title="六、MySQL"></a>六、MySQL</h1>
+<h1 id="六、MySQL"><a href="#六、MySQL" class="headerlink" title="六、MySQL"></a>六、MySQL</h1><h2 id="常见的数据库"><a href="#常见的数据库" class="headerlink" title="常见的数据库"></a>常见的数据库</h2><ul>
+<li><p>通常将数据划分成两类：关系型数据库和非关系型数据库；</p>
+</li>
+<li><p>关系型数据库：MySQL、Oracle、DB2、SQL Server、Postgre SQL等；</p>
+<ul>
+<li>关系型数据库通常会创建很多个二维数据表；</li>
+<li>数据表之间相互关联起来，形成一对一、一对多、多对对等关系；</li>
+<li>之后可以利用SQL语句在多张表中查询我们所需的数据；</li>
+<li>支持事务，对数据的访问更加的安全；</li>
+</ul>
+</li>
+<li><p>非关系型数据库：MongoDB、Redis、Memcached、HBse等；</p>
+<ul>
+<li>非关系型数据库的英文其实是Not only SQL，也简称为NoSQL；</li>
+<li>相当而已非关系型数据库比较简单一些，存储数据也会更加自由（甚至可以直接将一个复杂的json对象直接塞入到数据库中）；</li>
+<li>NoSQL是基于Key-Value的对应关系，并且查询的过程中不需要经过SQL解析，所以性能更高；</li>
+<li>NoSQL通常不支持事物，需要在自己的程序中来保证一些原子性的操作；</li>
+</ul>
+</li>
+</ul>
+<h2 id="终端连接数据库"><a href="#终端连接数据库" class="headerlink" title="终端连接数据库"></a>终端连接数据库</h2><ul>
+<li>方式一：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p密码</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方式二：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line">Enter password: 密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="终端操作数据库"><a href="#终端操作数据库" class="headerlink" title="终端操作数据库"></a>终端操作数据库</h2><h3 id="显示数据库"><a href="#显示数据库" class="headerlink" title="显示数据库"></a>显示数据库</h3><ul>
+<li>查看数据库</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>MySQL默认的数据库：<ul>
+<li>infomation_schema：信息数据库，其中包括MySQL在维护的其他数据库、表、列、访问权限等信息；</li>
+<li>performance_schema：性能数据库，记录着MySQL Server数据库引擎在运行过程中的一些资源消耗相关的信息；</li>
+<li>mysql：用于存储数据库管理者的用户信息、权限信息以及一些日志信息等；</li>
+<li>sys：相当于是一个简易版的performance_schema，将性能数据库中的数据汇总成更容易理解的形式。</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建数据库-表"><a href="#创建数据库-表" class="headerlink" title="创建数据库-表"></a>创建数据库-表</h3><ul>
+<li>在终端直接创建一个属于自己的新的数据库（一般情况下一个新的项目会对应一个新的数据库）：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE xxx;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用创建的数据库：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE xxx;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在数据中，创建一张表：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE user(</span><br><span class="line">		name varchar(20),</span><br><span class="line">		age int,</span><br><span class="line">		height double</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line">INSERT INTO user (name, age, height) VALUES (&#x27;li&#x27;, 18, 1.88);</span><br><span class="line">INSERT INTO user (name, age, height) VALUES (&#x27;si&#x27;, 40, 1.98);</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL语句的分类"><a href="#SQL语句的分类" class="headerlink" title="SQL语句的分类"></a>SQL语句的分类</h2><ul>
+<li><p>可以分成四类：</p>
+<ul>
+<li><p>DDL（Data Definition Language）：数据定义语言；</p>
+<ul>
+<li>可以通过DDL语句对数据库或者表进行：创建、删除、修改等操作；</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 查看所有的数据</span><br><span class="line">SHOW DATABASES;</span><br><span class="line"></span><br><span class="line"># 使用某一个数据</span><br><span class="line">USE coderhub;</span><br><span class="line"></span><br><span class="line"># 查看当前正在使用的数据库</span><br><span class="line">SELECT DATABASE();</span><br><span class="line"></span><br><span class="line"># 创建新的数据库</span><br><span class="line">CREATE DATABASE bilibili;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS bilibili;</span><br><span class="line"></span><br><span class="line"># 删除数据库</span><br><span class="line">DROP DATABASE bilibili;</span><br><span class="line">DROP DATABASE IF EXIT bilibili;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DML（Data Manipulation Language）：数据操作语言；</p>
+<ul>
+<li>可以通过DML语句对表进行：添加、删除、修改等操作；</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 查看所有的数据表</span><br><span class="line">SHOW TABLES;</span><br><span class="line"></span><br><span class="line"># 查看某一个表结构</span><br><span class="line">DESC user;</span><br><span class="line"></span><br><span class="line"># 创建数据表</span><br><span class="line">CREATE TABLE IF NOT EXISTS `users`(</span><br><span class="line">		name VARCHAR(20),</span><br><span class="line">		age INT,</span><br><span class="line">		height DOUBLE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DQL（Data Query Language）：数据查询语言；</p>
+<ul>
+<li>可以通过DQL从数据库中查询记录；</li>
+</ul>
+</li>
+<li><p>DCL（Data Control Language）：数据控制语言；</p>
+<ul>
+<li>对数据库、表格的权限进行相关访问控制操作；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="表约束"><a href="#表约束" class="headerlink" title="表约束"></a>表约束</h2><h3 id="主键：PRIMARY-KEY"><a href="#主键：PRIMARY-KEY" class="headerlink" title="主键：PRIMARY KEY"></a>主键：PRIMARY KEY</h3><ul>
+<li>一张表中，为了区分每一条记录的唯一性，必须有一个字段是永远不会重复，并且不会为空的，这个字段通常会将它设置为主键：<ul>
+<li>主键是表中唯一的索引；</li>
+<li>并且必须是NOT NULL ，如果没有设置NOT NULL，那么MySQL也会隐式的设置为NOT NULL；</li>
+<li>主键也可以是多列索引，PRIMARY KEY（key_part, …），一般称之为联合主键；</li>
+<li>建议：开发中主键字段应该是和业务无关的，尽量不要使用业务字段来作为主键。</li>
+</ul>
+</li>
+</ul>
+<h3 id="唯一：UNIQUE"><a href="#唯一：UNIQUE" class="headerlink" title="唯一：UNIQUE"></a>唯一：UNIQUE</h3><ul>
+<li>某些字段在开发中希望是唯一的，不会重复的，比如手机号码、身份证号码等，这个字段可以使用UNIQUE来约束；</li>
+<li>使用UNIQUE约束的字段在表中必须是不同的；</li>
+<li>对于所有引擎，UNIQUE索引允许NULL包含的列具有多个值NULL。</li>
+</ul>
+<h3 id="不能为空：NOT-NULL"><a href="#不能为空：NOT-NULL" class="headerlink" title="不能为空：NOT NULL"></a>不能为空：NOT NULL</h3><ul>
+<li>某些字段要求用户必须插入值，不可以为空，这个时候可以使用 NOT NULL 来约束；</li>
+</ul>
+<h3 id="默认值：DEFAULT"><a href="#默认值：DEFAULT" class="headerlink" title="默认值：DEFAULT"></a>默认值：DEFAULT</h3><ul>
+<li>某些字段希望在没有设置值时给予一个默认值，这个时候可以使用 DEFAULT来完成；</li>
+</ul>
+<h3 id="自动递增：AUTO-INCREMENT"><a href="#自动递增：AUTO-INCREMENT" class="headerlink" title="自动递增：AUTO_INCREMENT"></a>自动递增：AUTO_INCREMENT</h3><ul>
+<li>某些字段希望不设置值时可以进行递增，比如用户的id，这个时候可以使用AUTO_INCREMENT来完成；</li>
+</ul>
+<h3 id="创建一个完整的表"><a href="#创建一个完整的表" class="headerlink" title="创建一个完整的表"></a>创建一个完整的表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 完整的创建表的语法</span><br><span class="line">CREATE TABLE IF NOT EXISTS `users`(</span><br><span class="line">	id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	name VARCHAR(20) NOT NULL,</span><br><span class="line">	age INT DEFAULT 0,</span><br><span class="line">	phoneNUM VARCHAR(20) UNIQUE DEFAULT &#x27;&#x27;,</span><br><span class="line">	createtime TIMESTAMP</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 修改表</span><br><span class="line"># 1.修改表的名字</span><br><span class="line">ALTER TABLE `users` RENAME TO `user`;</span><br><span class="line"># 2.添加一个新的列</span><br><span class="line">ALTER TABLE `user` ADD `updateTime` TIMESTAMP;</span><br><span class="line"># 3.修改字段的名称</span><br><span class="line">ALTER TABLE `user` CHANGE `phoneNum` `telPhone` VARCHAR(20);</span><br><span class="line"># 4.修改字段的类型</span><br><span class="line">ALTER TABLE `user` MODIFY `name` VARCHAR(10);</span><br><span class="line"># 5.删除某一个字符</span><br><span class="line">ALTER TABLE `user` DROP `age`;</span><br><span class="line"></span><br><span class="line"># 根据一个表结构创建另外一张表</span><br><span class="line">CREATE TABLE `user1` LIKE `user`;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多表操作"><a href="#多表操作" class="headerlink" title="多表操作"></a>多表操作</h2><h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 求所有手机的价格的总和</span><br><span class="line">SELECT SUM(price) totalPrice FROM `products`;</span><br><span class="line"># 求华为手机的总价格</span><br><span class="line">SELECT SUM(price) FROM `products` WHERE brand = `华为`;</span><br><span class="line"># 求华为手机价格的平均值</span><br><span class="line">SELECT AVG(price) FROM `products` WHERE brand = `华为`;</span><br><span class="line"># 手机中最低和最高分数</span><br><span class="line">SELECT MAX(price) FROM `products`;</span><br><span class="line">SELECT MIN(price) FROM `products`;</span><br><span class="line"></span><br><span class="line"># 求华为手机的个数</span><br><span class="line">SELECT COUNT(*) FROM `products` WHERE brand = `华为`;</span><br><span class="line">SELECT COUNT(*) FROM `products` WHERE brand = `苹果`;</span><br><span class="line"># 去重</span><br><span class="line">SELECT COUNT(DISTINCT price) FROM `products`;</span><br></pre></td></tr></table></figure>
+
+<h3 id="GroupBy的使用"><a href="#GroupBy的使用" class="headerlink" title="GroupBy的使用"></a>GroupBy的使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT brand,AVG(price), COUNT(*),AVG(score) FROM `products` GROUP BY brand;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>给Group By查询到的结果添加一些约束，可以使用：HAVING</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HAVING的使用</span><br><span class="line">SELECT brand, AVG(price) avgPrice, COUNT(*), AVG(score) FROM `products` GROUP BY brand HAVING avgPrice &gt; 2000;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建多张表"><a href="#创建多张表" class="headerlink" title="创建多张表"></a>创建多张表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXITS `brand`(</span><br><span class="line">  id INT PRIMARY KEY AUTO_</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h1><ol>
+<li>初始化</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装koa</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>划分项目结构</li>
+<li>安装开发依赖</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemon -D</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>在main.js中添加</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;start&quot;: &quot;nodemon ./src/main.js&quot;</span><br></pre></td></tr></table></figure>
+
+<p>报错：</p>
+<p><img src="/assets/image-20241008%E4%B8%8B%E5%8D%8850602903.png" alt="image-20241008下午50602903"></p>
+<p>解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53249649/article/details/142773853?spm=1001.2014.3001.5502">https://blog.csdn.net/qq_53249649/article/details/142773853?spm=1001.2014.3001.5502</a></p>
+
       </section>
 
       
@@ -605,7 +752,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>21</span>
+        <span>20</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
