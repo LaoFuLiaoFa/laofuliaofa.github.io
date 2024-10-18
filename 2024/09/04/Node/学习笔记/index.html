@@ -104,7 +104,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-10-09T01:18:22.077Z" itemprop="dateUpdated">2024-10-09</time>
+              <time  class="article-updated" datetime="2024-10-18T09:21:04.634Z" itemprop="dateUpdated">2024-10-18</time>
             </h2>
           
           
@@ -674,7 +674,7 @@
 
 <h3 id="创建多张表"><a href="#创建多张表" class="headerlink" title="创建多张表"></a>创建多张表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXITS `brand`(</span><br><span class="line">  id INT PRIMARY KEY AUTO_</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<h1 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h1><ol>
+<h1 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h1><h2 id="项目的搭建"><a href="#项目的搭建" class="headerlink" title="项目的搭建"></a>项目的搭建</h2><ol>
 <li>初始化</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
@@ -698,7 +698,132 @@
 <p>报错：</p>
 <p><img src="/assets/image-20241008%E4%B8%8B%E5%8D%8850602903.png" alt="image-20241008下午50602903"></p>
 <p>解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53249649/article/details/142773853?spm=1001.2014.3001.5502">https://blog.csdn.net/qq_53249649/article/details/142773853?spm=1001.2014.3001.5502</a></p>
+<ol start="6">
+<li>启动项目</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 
+<ol start="7">
+<li><p>将应用配置信息写到环境变量</p>
+<ol>
+<li>编写.env文件</li>
+<li>通过dotenv加载配置的变量</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.安装</span></span><br><span class="line">npm install dotenv</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="用户注册接口"><a href="#用户注册接口" class="headerlink" title="用户注册接口"></a>用户注册接口</h2><blockquote>
+<ul>
+<li>用户注册接口编写流程<ul>
+<li>注册用户路由router编写；</li>
+<li>处理函数的控制器controller编写；</li>
+<li>操作数据库的service编写。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>数据库连接操作：mysql2<ul>
+<li>创建数据库连接；</li>
+<li>测试数据库连接是否成功；</li>
+<li>注册用户校验；</li>
+<li>用户名或密码不能为；</li>
+<li>用户名没有被注册过。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>密码加密存储</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>npm install koa-router</p>
+</blockquote>
+<blockquote>
+<p>解析JSON数据：npm install koa-bodyparser</p>
+</blockquote>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><ul>
+<li>创建表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `users`(</span><br><span class="line">	id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	name VARCHAR(30) NOT NULL UNIQUE,</span><br><span class="line">	password VARCHAR(50) NOT NULL,</span><br><span class="line">	createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</span><br><span class="line">	updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装mysql2</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mysql2</span><br></pre></td></tr></table></figure>
+
+<h2 id="登录和session-cookie"><a href="#登录和session-cookie" class="headerlink" title="登录和session-cookie"></a>登录和session-cookie</h2><blockquote>
+<p>service：一般情况下是对数据库做一些操作；</p>
+<p>middleware：在路由里面要做拦截的时候。</p>
+</blockquote>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jsonwebtoken</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用openssl来生成一对私钥和公钥：<ul>
+<li>Mac直接使用terminal终端即可；</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/image-20241014%E4%B8%8A%E5%8D%88110519333.png" alt="image-20241014上午110519333"></p>
+<blockquote>
+<p>可能会报错： </p>
+<p><img src="/assets/image-20241014%E4%B8%8B%E5%8D%88120051136.png" alt="image-20241014下午120051136"></p>
+<p>生成私钥时把1024改成2048，然后重新颁发就ok了</p>
+</blockquote>
+<blockquote>
+<p>在postman中添加脚本，自动获取token</p>
+<p><img src="/assets/image-20241014%E4%B8%8B%E5%8D%8811824221.png" alt="image-20241014下午11824221"></p>
+</blockquote>
+<h2 id="发表动态接口"><a href="#发表动态接口" class="headerlink" title="发表动态接口"></a>发表动态接口</h2><blockquote>
+<ul>
+<li><p>创建新的表 moment</p>
+<ul>
+<li>定义发布动态内容的接口</li>
+<li>定义路由接口</li>
+<li>验证用户登录</li>
+<li>Controller和Service中处理内容</li>
+</ul>
+</li>
+<li><p>定义修改动态内容的接口</p>
+<ul>
+<li>定义路由接口</li>
+<li>验证用户登录</li>
+<li>验证用户的权限</li>
+<li>Controller和Service中的处理</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `moment`(</span><br><span class="line">	id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">	content VARCHAR(1000) NOT NULL,</span><br><span class="line">	user_id INT NOT NULL,</span><br><span class="line">	createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,</span><br><span class="line">	updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,</span><br><span class="line">	FOREIGN KEY(user_id) REFERENCES users(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取动态接口"><a href="#获取动态接口" class="headerlink" title="获取动态接口"></a>获取动态接口</h2><h2 id="删除和查询动态内容"><a href="#删除和查询动态内容" class="headerlink" title="删除和查询动态内容"></a>删除和查询动态内容</h2><blockquote>
+<ul>
+<li><p>定义删除内容的接口</p>
+<ul>
+<li>定义路由接口</li>
+<li>验证用户登录</li>
+<li>验证用户权限</li>
+<li>Controller和Service的处理</li>
+</ul>
+</li>
+<li><p>定义查询单个内容的接口</p>
+<ul>
+<li>根据momentId查询接口内容；</li>
+</ul>
+</li>
+<li><p>定义查询多条内容的接口</p>
+<ul>
+<li>查询所有moment接口内容（根据offset和limit决定查询数量）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="发表和修改评论内容"><a href="#发表和修改评论内容" class="headerlink" title="发表和修改评论内容"></a>发表和修改评论内容</h2>
       </section>
 
       
